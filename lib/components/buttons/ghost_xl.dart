@@ -27,15 +27,21 @@ class CustomStatefulButtonState extends State<ButtonGhostXL> {
         : AppColors.black;
 
     return Material(
+      color: AppColors.black,
       child: InkWell(
         onTap: widget.isEnabled ? widget.onTap : null,
         onHover: (hovering) {
           setState(() => _isHovering = hovering);
         },
         child: Container(
-          color: backgroundColor,
           constraints: const BoxConstraints(minHeight: 48),
           padding: const EdgeInsets.symmetric(horizontal: 16),
+          decoration: ShapeDecoration(
+            color: backgroundColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(24),
+            ),
+          ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,

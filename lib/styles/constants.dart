@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AppColors {
   //Greys
@@ -173,7 +172,7 @@ class AppTextStyles {
       fontFamily: "Outfit",
       fontWeight: FontWeight.w900,
       height: 0);
-  
+
   //Title
   static const TextStyle title = TextStyle(
       fontSize: 72,
@@ -213,6 +212,10 @@ class AppIcons {
   static const String scan = 'assets/icons/Icon=scan.svg';
   static const String up = 'assets/icons/Icon=up.svg';
   static const String wallet = 'assets/icons/Icon=wallet.svg';
+  static const String menu = 'assets/icons/Icon=menu.svg';
+  static const String bitcoinFilled = 'assets/icons/Icon=bitcoin-filled.svg';
+  static const String plane = 'assets/icons/Icon=plane.svg';
+  static const String chat = 'assets/icons/Icon=chat.svg';
 }
 
 class AppImages {
@@ -221,6 +224,15 @@ class AppImages {
   static const String defaultProfileLG = 'assets/images/default_profileLG.png';
   static const String defaultProfileMD = 'assets/images/default_profileMD.png';
   static const String defaultProfileSM = 'assets/images/default_profileSM.png';
+}
+
+class Mockups {
+  //images
+  static const String send = 'assets/mockups/send-mockup.png';
+  static const String wallet = 'assets/mockups/wallet-mockup.png';
+  static const String home = 'assets/mockups/home-mockup.png';
+  static const String message = 'assets/mockups/messages-mockup.png';
+  static const String social = 'assets/mockups/social-mockup.png';
 }
 
 //Text Mark Base
@@ -247,7 +259,7 @@ class _TextMarkBase extends StatelessWidget {
           TextSpan(
             text: '.me',
             style: TextStyle(
-              color: AppColors.primary,
+              color: AppColors.textSecondary,
               fontFamily: 'Outfit',
               fontSize: fontSize,
               fontWeight: FontWeight.w900,

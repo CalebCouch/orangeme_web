@@ -1,336 +1,297 @@
 import 'package:flutter/material.dart';
-import 'components/buttons/ghost_xl.dart';
-import 'components/buttons/secondary_lg.dart';
 import 'components/buttons/ghost_md.dart';
-import 'components/buttons/secondary_md.dart';
 import 'components/buttons/orange_md.dart';
 import 'styles/constants.dart';
-import 'styles/theme.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'main.dart';
+import 'components/infocard.dart';
 
 Widget mobileHeader(BuildContext context) {
   //header
-   return Container(
-    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-    width: double.infinity,
+  return Container(
+    constraints: const BoxConstraints(maxWidth: 450),
+    padding: const EdgeInsets.symmetric(horizontal: 24),
     child: Row(
       mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        GestureDetector (
-          child: Container (
-            height: 32,
-            width: 32,
-            child: SvgPicture.asset(
-              AppIcons.brandmarkMD,
-            ),
+        Builder(
+          builder: (context) => Row(
+            children: [
+              IconButton(
+                  icon: SizedBox(
+                    height: 48,
+                    width: 48,
+                    child: SvgPicture.asset(
+                      AppIcons.menu,
+                    ),
+                  ),
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  }),
+              const SizedBox(width: 12),
+              IconButton(
+                  icon: const TextMarkXL(),
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      '/',
+                    );
+                  }),
+            ],
           ),
-          onTap: () {
-            Navigator.push(
-              context,
-              PageRouteBuilder(
-                pageBuilder: (_, __, ___) => Landing(),
-                transitionDuration: Duration.zero,
-              ),
-            );
-          }
         ),
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            ButtonGhostMD(
-              label: "Contact us",
-              onTap: () {
-                Navigator.push(
-                  context,
-                  PageRouteBuilder(
-                    pageBuilder: (_, __, ___) => Contact(),
-                    transitionDuration: Duration.zero,
-                  ),
-                );
-              }
-            ),
-            const SizedBox(width: 6),
-            ButtonOrangeMD(
-              label: "Download",
-              onTap: () {
-                Navigator.push(
-                  context,
-                  PageRouteBuilder(
-                    pageBuilder: (_, __, ___) => Download(),
-                    transitionDuration: Duration.zero,
-                  ),
-                );
-              }
-            ),
-          ],
-        ),
+        const Spacer(),
+        ButtonOrangeMD(
+            label: "Download Now",
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                '/download',
+              );
+            }),
       ],
     ),
   );
 }
 
+Widget menu(BuildContext context) {
+  return Container(
+      color: AppColors.black,
+      child: ListView(
+        padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 48),
+        children: [
+          ButtonOrangeMD(
+              label: "Download Now",
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  '/download',
+                );
+              }),
+          const SizedBox(height: 24),
+          ButtonGhostMD(
+              label: "Contact Us",
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  '/contact',
+                );
+              }),
+          const SizedBox(height: 24),
+          ButtonGhostMD(
+              label: "Privacy Policy",
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  '/privacy-policy',
+                );
+              }),
+        ],
+      ));
+}
+
 Widget contactMobile(BuildContext context) {
   return Scaffold(
-    body: Container(
-      width: MediaQuery.of(context).size.width,
-      alignment: Alignment.center,
-      child: Container (
-        padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 24),
-        constraints: BoxConstraints(maxWidth: 700),
-        child: Column (
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            mobileHeader(context),
-            //body
-            Expanded (
-              child: Container (
-                alignment: Alignment.center,
-                child: Column (
-                  mainAxisAlignment: MainAxisAlignment.center,
+      drawer: Drawer(child: menu(context)),
+      body: Container(
+          width: MediaQuery.of(context).size.width,
+          alignment: Alignment.center,
+          child: Container(
+              constraints: const BoxConstraints(maxWidth: 700),
+              child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      "contact us.",
-                      style: AppTextStyles.heading2
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      "email us at hello@orange.me",
-                      style: AppTextStyles.textLG
-                    ),
-                  ]
-                )
-              )
-            )
-          ]
-        )
-      )
-    )
-  );
+                    mobileHeader(context),
+                    //body
+                    Expanded(
+                        child: Container(
+                            alignment: Alignment.center,
+                            child: const Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text("contact us.",
+                                      style: AppTextStyles.heading2),
+                                  SizedBox(height: 8),
+                                  Text("email us at hello@orange.me",
+                                      style: AppTextStyles.textLG),
+                                ])))
+                  ]))));
+}
+
+Widget privacyPolicyMobile(BuildContext context) {
+  return Scaffold(
+      drawer: Drawer(child: menu(context)),
+      body: Container(
+          width: MediaQuery.of(context).size.width,
+          alignment: Alignment.center,
+          child: Container(
+              constraints: const BoxConstraints(maxWidth: 700),
+              child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    mobileHeader(context),
+                    //body
+                    Expanded(
+                        child: Container(
+                            alignment: Alignment.center,
+                            child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const Text("Privacy Policy.",
+                                      style: AppTextStyles.heading3),
+                                  const SizedBox(height: 24),
+                                  Container(
+                                      constraints:
+                                          const BoxConstraints(maxWidth: 400),
+                                      child: const Column(children: [
+                                        Text(
+                                            "orange me doesn't store any information about you other than the posts which you make, which are published to the orange me relay as well other relays if configured.",
+                                            style: AppTextStyles.textMD),
+                                        SizedBox(height: 24),
+                                        Text(
+                                            "orange me will share your public wallet address and any transaction details to facilitate any transaction request you submit with the Bitcoin Network.",
+                                            style: AppTextStyles.textMD),
+                                      ]))
+                                ])))
+                  ]))));
 }
 
 Widget downloadMobile(BuildContext context) {
   return Scaffold(
-    body: Container(
-      width: MediaQuery.of(context).size.width,
-      alignment: Alignment.center,
-      child: Container (
-        padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 24),
-        constraints: BoxConstraints(maxWidth: 700),
-        child: Column (
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            mobileHeader(context),
-            //body
-            Expanded (
-              child: Container (
-                alignment: Alignment.center,
-                child: Text(
-                  "coming soon.",
-                  style: AppTextStyles.heading2
-                ),
-              )
-            )
-          ]
-        )
-      )
-    )
-  );
+      drawer: Drawer(child: menu(context)),
+      body: Container(
+          width: MediaQuery.of(context).size.width,
+          alignment: Alignment.center,
+          child: Container(
+              constraints: const BoxConstraints(maxWidth: 700),
+              child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    mobileHeader(context),
+                    //body
+                    Expanded(
+                        child: Container(
+                      alignment: Alignment.center,
+                      child: const Text("coming soon.",
+                          style: AppTextStyles.heading3),
+                    ))
+                  ]))));
 }
 
 Widget landingMobile(BuildContext context) {
   return Scaffold(
-    body: Container(
-      width: MediaQuery.of(context).size.width,
-      alignment: Alignment.center,
-      child: Container (
-        padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 24),
-        constraints: BoxConstraints(maxWidth: 700),
-        child: Column (
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            mobileHeader(context),
-            //body
-            Expanded (
-              child: SingleChildScrollView (
-                child: Column (
+      drawer: Drawer(child: menu(context)),
+      body: Container(
+          width: MediaQuery.of(context).size.width,
+          alignment: Alignment.center,
+          child: Container(
+              constraints: const BoxConstraints(maxWidth: 700),
+              child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container (
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "orange me",
-                            style: AppTextStyles.heading2.copyWith(
-                              color: AppColors.bitcoin,
-                            ),
-                          ),
-                          const SizedBox(height: 12),
-                          Text(
-                            "friends and money no\none can take away",
-                            style: AppTextStyles.textLG
-                          ),
-                          const SizedBox(height: 12),
-                          SizedBox(
-                            width: 288,
-                            child: ButtonSecondaryMD(
-                              label: "Download now",
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 24),
-                    Container (
-                      alignment: Alignment.center,
-                      width: double.infinity,
-                      child: Container(
-                        constraints: BoxConstraints(maxWidth: 450),
-                        child: Image.asset('assets/wallet-mockup.png'),
-                      ),
-                    ),
-                    const SizedBox(height: 24),
-                    Container (
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "messages.",
-                            style: AppTextStyles.heading2
-                          ),
-                          const SizedBox(height: 12),
-                          Text(
-                            "talk to your friends\nwithout the snooping",
-                            style: AppTextStyles.textLG
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 24),
-                    Container (
-                      alignment: Alignment.center,
-                      width: double.infinity,
-                      child: Container(
-                        constraints: BoxConstraints(maxWidth: 450),
-                        child: Image.asset('assets/messages-mockup.png'),
-                      ),
-                    ),
-                    const SizedBox(height: 24),
-                    Container (
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "social.",
-                            style: AppTextStyles.heading2
-                          ),
-                          const SizedBox(height: 12),
-                          Text(
-                            "share your ideas and\nlearn with the world",
-                            style: AppTextStyles.textLG
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 24),
-                    Container (
-                      alignment: Alignment.center,
-                      width: double.infinity,
-                      child: Container(
-                        constraints: BoxConstraints(maxWidth: 450),
-                        child: Image.asset('assets/wallet-mockup.png'),
-                      ),
-                    ),
-                    const SizedBox(height: 24),
-                    Container (
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "bitcoin.",
-                            style: AppTextStyles.heading2
-                          ),
-                          const SizedBox(height: 12),
-                          Text(
-                            "bitcoin that's easy to own\nand fun to share",
-                            style: AppTextStyles.textLG
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 24),
-                    Container (
-                      alignment: Alignment.center,
-                      width: double.infinity,
-                      child: Container(
-                        constraints: BoxConstraints(maxWidth: 450),
-                        child: Image.asset('assets/bitcoin-mockup.png'),
-                      ),
-                    ),
-                    const SizedBox(height: 24),
-                    Container (
-                      width: double.infinity,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          ButtonGhostMD(
-                            label: "Contact us",
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                PageRouteBuilder(
-                                  pageBuilder: (_, __, ___) => Contact(),
-                                  transitionDuration: Duration.zero,
-                                ),
-                              );
-                            }
-                          ),
-                          const SizedBox(width: 6),
-                          ButtonOrangeMD(
-                            label: "Download",
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                PageRouteBuilder(
-                                  pageBuilder: (_, __, ___) => Download(),
-                                  transitionDuration: Duration.zero,
-                                ),
-                              );
-                            }
-                          ),
-                        ],
-                      ),
-                    ),
-                  ]
-                )
-              )
-            )
-          ]
-        )
-      )
-    )
-  );
-  
+                    mobileHeader(context),
+                    //body
+                    Expanded(
+                        child: SingleChildScrollView(
+                            child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 24, vertical: 24),
+                                child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      // Title
+                                      const SizedBox(height: 24),
+                                      Container(
+                                        constraints:
+                                            const BoxConstraints(maxWidth: 345),
+                                        child: const Text(
+                                            "friends and money no one can take away",
+                                            textAlign: TextAlign.center,
+                                            style: AppTextStyles.heading1),
+                                      ),
+                                      const SizedBox(height: 24),
+                                      SizedBox(
+                                        child: Text(
+                                            "Your favorite place to\nconnect and explore",
+                                            textAlign: TextAlign.center,
+                                            style:
+                                                AppTextStyles.textLG.copyWith(
+                                              color: AppColors.textSecondary,
+                                            )),
+                                      ),
+                                      const SizedBox(height: 48),
+                                      Container(
+                                        constraints:
+                                            const BoxConstraints(maxWidth: 280),
+                                        child: Image.asset(Mockups.home),
+                                      ),
+                                      const SizedBox(height: 48),
+                                      const InfoCard(
+                                          icon: AppIcons.chat,
+                                          title: "Messages.",
+                                          subtext:
+                                              "talk to your friends without the snooping"),
+                                      const SizedBox(height: 24),
+                                      const InfoCard(
+                                          icon: AppIcons.plane,
+                                          title: "Social.",
+                                          subtext:
+                                              "share your ideas and learn with the world"),
+                                      const SizedBox(height: 24),
+                                      const InfoCard(
+                                          icon: AppIcons.bitcoinFilled,
+                                          title: "Bitcoin.",
+                                          subtext:
+                                              "money that's easy to own and fun to share"),
+                                      const SizedBox(height: 24),
+                                      Container(
+                                          constraints: const BoxConstraints(
+                                              maxWidth: 345),
+                                          alignment: Alignment.center,
+                                          child: Wrap(
+                                            alignment: WrapAlignment.center,
+                                            spacing: 12,
+                                            runSpacing: 12,
+                                            direction: Axis.horizontal,
+                                            children: [
+                                              ButtonOrangeMD(
+                                                  label: "Download Now",
+                                                  onTap: () {
+                                                    Navigator.pushNamed(
+                                                      context,
+                                                      '/download',
+                                                    );
+                                                  }),
+                                              ButtonGhostMD(
+                                                  label: "Contact Us",
+                                                  onTap: () {
+                                                    Navigator.pushNamed(
+                                                      context,
+                                                      '/contact',
+                                                    );
+                                                  }),
+                                              ButtonGhostMD(
+                                                  label: "Privacy Policy",
+                                                  onTap: () {
+                                                    Navigator.pushNamed(
+                                                      context,
+                                                      '/privacy-policy',
+                                                    );
+                                                  }),
+                                            ],
+                                          ))
+                                    ]))))
+                  ]))));
 }
