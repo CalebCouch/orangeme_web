@@ -101,7 +101,7 @@ Widget privacyPolicyDesktop(BuildContext context) {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  const Text("Privacy Policy.",
+                                  const Text("Our Privacy Policy.",
                                       style: AppTextStyles.heading2),
                                   const SizedBox(height: 48),
                                   Container(
@@ -109,11 +109,11 @@ Widget privacyPolicyDesktop(BuildContext context) {
                                           const BoxConstraints(maxWidth: 400),
                                       child: const Column(children: [
                                         Text(
-                                            "orange me doesn't store any information about you other than the posts which you make, which are published to the orange me relay as well other relays if configured.",
+                                            "The orange me app does not collect or share any information with anyone.",
                                             style: AppTextStyles.textLG),
                                         SizedBox(height: 24),
                                         Text(
-                                            "orange me will share your public wallet address and any transaction details to facilitate any transaction request you submit with the Bitcoin Network.",
+                                            "Orange me LLC does not operate any services or servers to support the orange me app.",
                                             style: AppTextStyles.textLG),
                                       ]))
                                 ])))
