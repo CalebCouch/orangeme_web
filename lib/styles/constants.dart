@@ -228,6 +228,7 @@ class AppImages {
 
 class Mockups {
   //images
+  static const String sendStacked = 'assets/mockups/sendStacked-mockup.png';
   static const String send = 'assets/mockups/send-mockup.png';
   static const String wallet = 'assets/mockups/wallet-mockup.png';
   static const String home = 'assets/mockups/home-mockup.png';

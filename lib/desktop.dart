@@ -71,7 +71,7 @@ Widget contactDesktop(BuildContext context) {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                          Text("contact us.", style: AppTextStyles.heading1),
+                          Text("contact us.", style: AppTextStyles.heading2),
                           SizedBox(height: 8),
                           Text("email us at hello@orange.me",
                               style: AppTextStyles.textLG),
@@ -105,8 +105,9 @@ Widget privacyPolicyDesktop(BuildContext context) {
                                       style: AppTextStyles.heading2),
                                   const SizedBox(height: 48),
                                   Container(
+                                      alignment: Alignment.center,
                                       constraints:
-                                          const BoxConstraints(maxWidth: 400),
+                                          const BoxConstraints(maxWidth: 300),
                                       child: const Column(children: [
                                         Text(
                                             "The orange me app does not collect or share any information with anyone.",
@@ -139,7 +140,7 @@ Widget downloadDesktop(BuildContext context) {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                          Text("coming soon.", style: AppTextStyles.heading1),
+                          Text("coming soon.", style: AppTextStyles.heading2),
                         ]))
                   ]))));
 }

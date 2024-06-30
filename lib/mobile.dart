@@ -7,6 +7,7 @@ import 'components/infocard.dart';
 
 Widget mobileHeader(BuildContext context) {
   //header
+  double screenWidth = MediaQuery.of(context).size.width;
   return Container(
     constraints: const BoxConstraints(maxWidth: 450),
     padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -28,9 +29,15 @@ Widget mobileHeader(BuildContext context) {
                   onPressed: () {
                     Scaffold.of(context).openDrawer();
                   }),
-              const SizedBox(width: 12),
               IconButton(
-                  icon: const TextMarkXL(),
+                  icon: screenWidth > 400
+                      ? const TextMarkXL()
+                      : SizedBox(
+                          height: 36,
+                          width: 36,
+                          child: SvgPicture.asset(
+                            AppIcons.brandmarkLG,
+                          )),
                   onPressed: () {
                     Navigator.pushNamed(
                       context,
@@ -60,6 +67,15 @@ Widget menu(BuildContext context) {
       child: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 48),
         children: [
+          IconButton(
+              icon: const TextMarkXL(),
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  '/',
+                );
+              }),
+          const SizedBox(height: 24),
           ButtonOrangeMD(
               label: "Download Now",
               onTap: () {
@@ -112,10 +128,10 @@ Widget contactMobile(BuildContext context) {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text("contact us.",
-                                      style: AppTextStyles.heading2),
+                                      style: AppTextStyles.heading3),
                                   SizedBox(height: 8),
                                   Text("email us at hello@orange.me",
-                                      style: AppTextStyles.textLG),
+                                      style: AppTextStyles.textMD),
                                 ])))
                   ]))));
 }
@@ -146,8 +162,9 @@ Widget privacyPolicyMobile(BuildContext context) {
                                       style: AppTextStyles.heading3),
                                   const SizedBox(height: 24),
                                   Container(
+                                      alignment: Alignment.center,
                                       constraints:
-                                          const BoxConstraints(maxWidth: 400),
+                                          const BoxConstraints(maxWidth: 300),
                                       child: const Column(children: [
                                         Text(
                                             "The orange me app does not collect or share any information with anyone.",
@@ -240,19 +257,19 @@ Widget landingMobile(BuildContext context) {
                                       const SizedBox(height: 48),
                                       const InfoCard(
                                           icon: AppIcons.chat,
-                                          title: "Messages.",
+                                          title: "messages.",
                                           subtext:
                                               "talk to your friends without the snooping"),
                                       const SizedBox(height: 24),
                                       const InfoCard(
                                           icon: AppIcons.plane,
-                                          title: "Social.",
+                                          title: "social.",
                                           subtext:
                                               "share your ideas and learn with the world"),
                                       const SizedBox(height: 24),
                                       const InfoCard(
                                           icon: AppIcons.bitcoinFilled,
-                                          title: "Bitcoin.",
+                                          title: "bitcoin.",
                                           subtext:
                                               "money that's easy to own and fun to share"),
                                       const SizedBox(height: 24),
