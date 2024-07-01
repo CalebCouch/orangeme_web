@@ -160,297 +160,259 @@ Widget downloadDesktop(BuildContext context) {
   );
 }
 
-Widget blogDesktop(BuildContext context) {
-  return Scaffold(
-    body: Container(
-      width: MediaQuery.of(context).size.width,
-      alignment: Alignment.center,
-      child: Container(
-        constraints: const BoxConstraints(maxWidth: 1750),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            desktopHeader(context),
-            //body
-            const Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text("coming soon.", style: AppTextStyles.heading1),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    ),
-  );
-}
-
 Widget landingDesktop(BuildContext context) {
   return Scaffold(
     body: Container(
       width: MediaQuery.of(context).size.width,
       alignment: Alignment.center,
-      child: Container(
-        constraints: const BoxConstraints(maxWidth: 1550),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            desktopHeader(context),
-            //body
-            Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 96, vertical: 48),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          //Orange Me
-                          SizedBox(
-                            width: double.infinity,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Flexible(
-                                  child: Container(
-                                    constraints: const BoxConstraints(
-                                        minWidth: 650, maxWidth: 700),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "orange me",
-                                          style: AppTextStyles.title.copyWith(
-                                            color: AppColors.bitcoin,
-                                          ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          desktopHeader(context),
+          //body
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 96, vertical: 48),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        //Orange Me
+                        SizedBox(
+                          width: double.infinity,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Flexible(
+                                child: Container(
+                                  constraints: const BoxConstraints(
+                                      minWidth: 650, maxWidth: 700),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "orange me",
+                                        style: AppTextStyles.title.copyWith(
+                                          color: AppColors.bitcoin,
                                         ),
-                                        const SizedBox(height: 24),
-                                        const Flexible(
-                                            child: Text(
-                                                "friends and money no one can take away",
-                                                style: AppTextStyles.subtitle)),
-                                        const SizedBox(height: 24),
-                                        SizedBox(
-                                          width: 400,
-                                          child: ButtonSecondaryLG(
-                                              label: "Download now",
-                                              onTap: () {
-                                                Navigator.pushNamed(
-                                                  context,
-                                                  '/download',
-                                                );
-                                              }),
-                                        ),
-                                      ],
-                                    ),
+                                      ),
+                                      const SizedBox(height: 24),
+                                      const Flexible(
+                                          child: Text(
+                                              "friends and money no one can take away",
+                                              style: AppTextStyles.subtitle)),
+                                      const SizedBox(height: 24),
+                                      SizedBox(
+                                        width: 400,
+                                        child: ButtonSecondaryLG(
+                                            label: "Download now",
+                                            onTap: () {
+                                              Navigator.pushNamed(
+                                                context,
+                                                '/download',
+                                              );
+                                            }),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                                Flexible(
-                                  child: Container(
-                                    constraints: const BoxConstraints(
-                                        minWidth: 300, maxWidth: 550),
-                                    child: Image.asset(Mockups.wallet),
-                                  ),
+                              ),
+                              Flexible(
+                                child: Container(
+                                  constraints: const BoxConstraints(
+                                      minWidth: 300, maxWidth: 550),
+                                  child: Image.asset(Mockups.wallet),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                          const SizedBox(height: 196),
-                          //Messages
-                          SizedBox(
-                            width: double.infinity,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Flexible(
-                                  child: Container(
-                                    constraints: const BoxConstraints(
-                                        minWidth: 300, maxWidth: 550),
-                                    child: Image.asset(Mockups.message),
+                        ),
+                        const SizedBox(height: 196),
+                        //Messages
+                        SizedBox(
+                          width: double.infinity,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Flexible(
+                                child: Container(
+                                  constraints: const BoxConstraints(
+                                      minWidth: 300, maxWidth: 550),
+                                  child: Image.asset(Mockups.message),
+                                ),
+                              ),
+                              Flexible(
+                                child: Container(
+                                  constraints: const BoxConstraints(
+                                      minWidth: 650, maxWidth: 700),
+                                  child: const Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Text("messages.",
+                                          style: AppTextStyles.title),
+                                      SizedBox(height: 24),
+                                      Flexible(
+                                          child: Text(
+                                        "talk to your friends without the snooping",
+                                        style: AppTextStyles.subtitle,
+                                        textAlign: TextAlign.right,
+                                      )),
+                                    ],
                                   ),
                                 ),
-                                Flexible(
-                                  child: Container(
-                                    constraints: const BoxConstraints(
-                                        minWidth: 650, maxWidth: 700),
-                                    child: const Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.end,
-                                      children: [
-                                        Text("messages.",
-                                            style: AppTextStyles.title),
-                                        SizedBox(height: 24),
-                                        Flexible(
-                                            child: Text(
-                                          "talk to your friends without the snooping",
-                                          style: AppTextStyles.subtitle,
-                                          textAlign: TextAlign.right,
-                                        )),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                          const SizedBox(height: 196),
-                          //Social
-                          SizedBox(
-                            width: double.infinity,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Flexible(
-                                  child: Container(
-                                    constraints: const BoxConstraints(
-                                        minWidth: 650, maxWidth: 700),
-                                    child: const Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text("social.",
-                                            style: AppTextStyles.title),
-                                        SizedBox(height: 24),
-                                        Flexible(
-                                            child: Text(
-                                                "share your ideas and learn with the world",
-                                                style: AppTextStyles.subtitle)),
-                                      ],
-                                    ),
+                        ),
+                        const SizedBox(height: 196),
+                        //Social
+                        SizedBox(
+                          width: double.infinity,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Flexible(
+                                child: Container(
+                                  constraints: const BoxConstraints(
+                                      minWidth: 650, maxWidth: 700),
+                                  child: const Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text("social.",
+                                          style: AppTextStyles.title),
+                                      SizedBox(height: 24),
+                                      Flexible(
+                                          child: Text(
+                                              "share your ideas and learn with the world",
+                                              style: AppTextStyles.subtitle)),
+                                    ],
                                   ),
                                 ),
-                                Flexible(
-                                  child: Container(
-                                    constraints: const BoxConstraints(
-                                        minWidth: 300, maxWidth: 550),
-                                    child: Image.asset(Mockups.social),
-                                  ),
+                              ),
+                              Flexible(
+                                child: Container(
+                                  constraints: const BoxConstraints(
+                                      minWidth: 300, maxWidth: 550),
+                                  child: Image.asset(Mockups.social),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                          const SizedBox(height: 196),
-                          //Bitcoin
-                          SizedBox(
-                            width: double.infinity,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Flexible(
-                                  child: Container(
-                                    constraints: const BoxConstraints(
-                                        minWidth: 300, maxWidth: 550),
-                                    child: Image.asset(Mockups.send),
+                        ),
+                        const SizedBox(height: 196),
+                        //Bitcoin
+                        SizedBox(
+                          width: double.infinity,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Flexible(
+                                child: Container(
+                                  constraints: const BoxConstraints(
+                                      minWidth: 300, maxWidth: 550),
+                                  child: Image.asset(Mockups.send),
+                                ),
+                              ),
+                              Flexible(
+                                child: Container(
+                                  constraints: const BoxConstraints(
+                                      minWidth: 650, maxWidth: 700),
+                                  child: const Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Text("bitcoin.",
+                                          textAlign: TextAlign.end,
+                                          style: AppTextStyles.title),
+                                      SizedBox(height: 24),
+                                      Flexible(
+                                          child: Text(
+                                              "money that is easy to own and fun to share",
+                                              textAlign: TextAlign.end,
+                                              style: AppTextStyles.subtitle)),
+                                    ],
                                   ),
                                 ),
-                                Flexible(
-                                  child: Container(
-                                    constraints: const BoxConstraints(
-                                        minWidth: 650, maxWidth: 700),
-                                    child: const Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.end,
-                                      children: [
-                                        Text("bitcoin.",
-                                            textAlign: TextAlign.end,
-                                            style: AppTextStyles.title),
-                                        SizedBox(height: 24),
-                                        Flexible(
-                                            child: Text(
-                                                "money that is easy to own and fun to share",
-                                                textAlign: TextAlign.end,
-                                                style: AppTextStyles.subtitle)),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    const SizedBox(height: 128),
-                    //footer
-                    SizedBox(
-                      width: double.infinity,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          ButtonGhostXL(
-                            label: "Contact us",
-                            onTap: () {
-                              Navigator.pushNamed(
-                                context,
-                                '/contact',
-                              );
-                            },
-                          ),
-                          const SizedBox(width: 46),
-                          ButtonOrangeLG(
-                            label: "Download now",
-                            onTap: () {
-                              Navigator.pushNamed(
-                                context,
-                                '/download',
-                              );
-                            },
-                          ),
-                        ],
-                      ),
+                  ),
+                  const SizedBox(height: 128),
+                  //footer
+                  SizedBox(
+                    width: double.infinity,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        ButtonGhostXL(
+                          label: "Contact us",
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              '/contact',
+                            );
+                          },
+                        ),
+                        const SizedBox(width: 46),
+                        ButtonOrangeLG(
+                          label: "Download now",
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              '/download',
+                            );
+                          },
+                        ),
+                      ],
                     ),
-                    const SizedBox(height: 24),
-                    Container(
-                      width: double.infinity,
-                      alignment: Alignment.center,
-                      child: ButtonGhostMD(
-                        label: "Privacy Policy",
-                        onTap: () {
-                          Navigator.pushNamed(
-                            context,
-                            '/privacy-policy',
-                          );
-                        },
-                      ),
+                  ),
+                  const SizedBox(height: 24),
+                  Container(
+                    width: double.infinity,
+                    alignment: Alignment.center,
+                    child: ButtonGhostMD(
+                      label: "Privacy Policy",
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          '/privacy-policy',
+                        );
+                      },
                     ),
-                    const SizedBox(height: 48),
-                  ],
-                ),
+                  ),
+                  const SizedBox(height: 48),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     ),
   );
