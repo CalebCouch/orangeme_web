@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:orangemeweb/styles/constants.dart';
 import 'styles/theme.dart';
 import 'desktop.dart';
 import 'mobile.dart';
@@ -14,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      color: AppColors.background,
+      color: Colors.black,
       initialRoute: '/#/',
       onGenerateRoute: (RouteSettings settings) {
         switch (settings.name) {
