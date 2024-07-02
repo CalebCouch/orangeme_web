@@ -15,8 +15,16 @@ Widget desktopHeader(BuildContext context) {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        GestureDetector(
-            child: const TextMarkXL(),
+        InkWell(
+            hoverColor: AppColors.offBlack,
+            customBorder: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(24),
+            ),
+            child: Container(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: const TextMarkXL(),
+            ),
             onTap: () {
               Navigator.pushNamed(
                 context,
@@ -54,29 +62,30 @@ Widget desktopHeader(BuildContext context) {
 
 Widget contactDesktop(BuildContext context) {
   return Scaffold(
-      body: Container(
-          width: MediaQuery.of(context).size.width,
-          alignment: Alignment.center,
-          child: Container(
-              constraints: const BoxConstraints(maxWidth: 1750),
+    body: Container(
+      width: MediaQuery.of(context).size.width,
+      alignment: Alignment.center,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          desktopHeader(context),
+          //body
+          const Expanded(
               child: Column(
-                  mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    desktopHeader(context),
-                    //body
-                    const Expanded(
-                        child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                          Text("contact us.", style: AppTextStyles.heading2),
-                          SizedBox(height: 8),
-                          Text("email us at hello@orange.me",
-                              style: AppTextStyles.textLG),
-                        ]))
-                  ]))));
+                Text("contact us.", style: AppTextStyles.heading2),
+                SizedBox(height: 8),
+                Text("email us at hello@orange.me",
+                    style: AppTextStyles.textLG),
+              ]))
+        ],
+      ),
+    ),
+  );
 }
 
 Widget privacyPolicyDesktop(BuildContext context) {
@@ -84,47 +93,43 @@ Widget privacyPolicyDesktop(BuildContext context) {
     body: Container(
       width: MediaQuery.of(context).size.width,
       alignment: Alignment.center,
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 24),
-        constraints: const BoxConstraints(maxWidth: 1750),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            desktopHeader(context),
-            //body
-            Expanded(
-              child: Container(
-                alignment: Alignment.center,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Text("Our Privacy Policy.",
-                        style: AppTextStyles.heading2),
-                    const SizedBox(height: 48),
-                    Container(
-                      alignment: Alignment.center,
-                      constraints: const BoxConstraints(maxWidth: 300),
-                      child: const Column(
-                        children: [
-                          Text(
-                              "The orange me app does not collect or share any information with anyone.",
-                              style: AppTextStyles.textLG),
-                          SizedBox(height: 24),
-                          Text(
-                              "Orange me LLC does not operate any services or servers to support the orange me app.",
-                              style: AppTextStyles.textLG),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          desktopHeader(context),
+          //body
+          Expanded(
+            child: Container(
+              alignment: Alignment.center,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text("Our Privacy Policy.",
+                      style: AppTextStyles.heading2),
+                  const SizedBox(height: 48),
+                  Container(
+                    alignment: Alignment.center,
+                    constraints: const BoxConstraints(maxWidth: 300),
+                    child: const Column(
+                      children: [
+                        Text(
+                            "The orange me app does not collect or share any information with anyone.",
+                            style: AppTextStyles.textLG),
+                        SizedBox(height: 24),
+                        Text(
+                            "Orange me LLC does not operate any services or servers to support the orange me app.",
+                            style: AppTextStyles.textLG),
+                      ],
+                    ),
+                  )
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     ),
   );
@@ -135,26 +140,23 @@ Widget downloadDesktop(BuildContext context) {
     body: Container(
       width: MediaQuery.of(context).size.width,
       alignment: Alignment.center,
-      child: Container(
-        constraints: const BoxConstraints(maxWidth: 1750),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            desktopHeader(context),
-            //body
-            const Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text("coming soon.", style: AppTextStyles.heading2),
-                ],
-              ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          desktopHeader(context),
+          //body
+          const Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text("coming soon.", style: AppTextStyles.heading2),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     ),
   );
