@@ -49,13 +49,14 @@ Widget mobileHeader(BuildContext context) {
         ),
         const Spacer(),
         ButtonOrangeMD(
-            label: "Download Now",
-            onTap: () {
-              Navigator.pushNamed(
-                context,
-                '/download',
-              );
-            }),
+          label: "Download Now",
+          onTap: () {
+            Navigator.pushNamed(
+              context,
+              '/download',
+            );
+          },
+        ),
       ],
     ),
   );
@@ -63,143 +64,175 @@ Widget mobileHeader(BuildContext context) {
 
 Widget menu(BuildContext context) {
   return Container(
-      color: AppColors.black,
-      child: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 48),
-        children: [
-          IconButton(
-              icon: const TextMarkXL(),
-              onPressed: () {
-                Navigator.pushNamed(
-                  context,
-                  '/',
-                );
-              }),
-          const SizedBox(height: 24),
-          ButtonOrangeMD(
-              label: "Download Now",
-              onTap: () {
-                Navigator.pushNamed(
-                  context,
-                  '/download',
-                );
-              }),
-          const SizedBox(height: 24),
-          ButtonGhostMD(
-              label: "Contact Us",
-              onTap: () {
-                Navigator.pushNamed(
-                  context,
-                  '/contact',
-                );
-              }),
-          const SizedBox(height: 24),
-          ButtonGhostMD(
-              label: "Privacy Policy",
-              onTap: () {
-                Navigator.pushNamed(
-                  context,
-                  '/privacy-policy',
-                );
-              }),
-        ],
-      ));
+    color: AppColors.black,
+    child: ListView(
+      padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 48),
+      children: [
+        IconButton(
+            icon: const TextMarkXL(),
+            onPressed: () {
+              Navigator.pushNamed(
+                context,
+                '/',
+              );
+            }),
+        const SizedBox(height: 24),
+        ButtonOrangeMD(
+            label: "Download Now",
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                '/download',
+              );
+            }),
+        const SizedBox(height: 24),
+        ButtonGhostMD(
+            label: "Contact Us",
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                '/contact',
+              );
+            }),
+        const SizedBox(height: 24),
+        ButtonGhostMD(
+          label: "Privacy Policy",
+          onTap: () {
+            Navigator.pushNamed(
+              context,
+              '/privacy-policy',
+            );
+          },
+        ),
+      ],
+    ),
+  );
 }
 
 Widget contactMobile(BuildContext context) {
   return Scaffold(
-      drawer: Drawer(child: menu(context)),
-      body: Container(
-          width: MediaQuery.of(context).size.width,
-          alignment: Alignment.center,
-          child: Container(
-              constraints: const BoxConstraints(maxWidth: 700),
-              child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+    drawer: Drawer(child: menu(context)),
+    body: Container(
+      width: MediaQuery.of(context).size.width,
+      alignment: Alignment.center,
+      child: Container(
+        constraints: const BoxConstraints(maxWidth: 700),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            mobileHeader(context),
+            //body
+            Expanded(
+              child: Container(
+                alignment: Alignment.center,
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    mobileHeader(context),
-                    //body
-                    Expanded(
-                        child: Container(
-                            alignment: Alignment.center,
-                            child: const Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text("contact us.",
-                                      style: AppTextStyles.heading3),
-                                  SizedBox(height: 8),
-                                  Text("email us at hello@orange.me",
-                                      style: AppTextStyles.textMD),
-                                ])))
-                  ]))));
+                    Text("contact us.", style: AppTextStyles.heading3),
+                    SizedBox(height: 8),
+                    Text("email us at hello@orange.me",
+                        style: AppTextStyles.textMD),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
 }
 
 Widget privacyPolicyMobile(BuildContext context) {
   return Scaffold(
-      drawer: Drawer(child: menu(context)),
-      body: Container(
-          width: MediaQuery.of(context).size.width,
-          alignment: Alignment.center,
-          child: Container(
-              constraints: const BoxConstraints(maxWidth: 700),
-              child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.start,
+    drawer: Drawer(child: menu(context)),
+    body: Container(
+      width: MediaQuery.of(context).size.width,
+      alignment: Alignment.center,
+      child: Container(
+        constraints: const BoxConstraints(maxWidth: 700),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            mobileHeader(context),
+            //body
+            Expanded(
+              child: Container(
+                alignment: Alignment.center,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    mobileHeader(context),
-                    //body
-                    Expanded(
-                        child: Container(
-                            alignment: Alignment.center,
-                            child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  const Text("Our Privacy Policy.",
-                                      style: AppTextStyles.heading3),
-                                  const SizedBox(height: 24),
-                                  Container(
-                                      alignment: Alignment.center,
-                                      constraints:
-                                          const BoxConstraints(maxWidth: 300),
-                                      child: const Column(children: [
-                                        Text(
-                                            "The orange me app does not collect or share any information with anyone.",
-                                            style: AppTextStyles.textMD),
-                                        SizedBox(height: 24),
-                                        Text(
-                                            "Orange me LLC does not operate any services or servers to support the orange me app.",
-                                            style: AppTextStyles.textMD),
-                                      ]))
-                                ])))
-                  ]))));
+                    const Text("Our Privacy Policy.",
+                        style: AppTextStyles.heading3),
+                    const SizedBox(height: 24),
+                    Container(
+                      alignment: Alignment.center,
+                      constraints: const BoxConstraints(maxWidth: 300),
+                      child: const Column(
+                        children: [
+                          Text(
+                              "The orange me app does not collect or share any information with anyone.",
+                              style: AppTextStyles.textMD),
+                          SizedBox(height: 24),
+                          Text(
+                              "Orange me LLC does not operate any services or servers to support the orange me app.",
+                              style: AppTextStyles.textMD),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
 }
 
 Widget downloadMobile(BuildContext context) {
   return Scaffold(
-      drawer: Drawer(child: menu(context)),
-      body: Container(
-          width: MediaQuery.of(context).size.width,
-          alignment: Alignment.center,
-          child: Container(
-              constraints: const BoxConstraints(maxWidth: 700),
-              child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+    drawer: Drawer(child: menu(context)),
+    body: Container(
+      width: MediaQuery.of(context).size.width,
+      alignment: Alignment.center,
+      child: Container(
+        constraints: const BoxConstraints(maxWidth: 700),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            mobileHeader(context),
+            //body
+            Expanded(
+              child: Container(
+                alignment: Alignment.center,
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    mobileHeader(context),
-                    //body
-                    Expanded(
-                        child: Container(
-                      alignment: Alignment.center,
-                      child: const Text("coming soon.",
-                          style: AppTextStyles.heading3),
-                    ))
-                  ]))));
+                    Text("download now.", style: AppTextStyles.heading3),
+                    SizedBox(height: 8),
+                    Text(
+                      "for early access send us an email at hello@orange.me",
+                      style: AppTextStyles.textMD,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
 }
 
 Widget landingMobile(BuildContext context) {

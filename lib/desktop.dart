@@ -73,15 +73,17 @@ Widget contactDesktop(BuildContext context) {
           desktopHeader(context),
           //body
           const Expanded(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
                 Text("contact us.", style: AppTextStyles.heading2),
                 SizedBox(height: 8),
                 Text("email us at hello@orange.me",
                     style: AppTextStyles.textLG),
-              ]))
+              ],
+            ),
+          )
         ],
       ),
     ),
@@ -152,10 +154,16 @@ Widget downloadDesktop(BuildContext context) {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text("coming soon.", style: AppTextStyles.heading2),
+                Text("download now.", style: AppTextStyles.heading2),
+                SizedBox(height: 8),
+                Text(
+                  "for early access send us an email at hello@orange.me",
+                  style: AppTextStyles.textLG,
+                  textAlign: TextAlign.center,
+                ),
               ],
             ),
-          ),
+          )
         ],
       ),
     ),
